@@ -16,7 +16,10 @@ function App() {
       let data = {
         map,
       };
-      const res = await axios.post(`http://localhost:3001/sendMap`, data);
+      const res = await axios.post(
+        `https://sadonosuproject.herokuapp.com/sendMap`,
+        data
+      );
       if (map.length === 0) {
         toast.error(res.data.msg);
       } else if (res.status === 200) {
