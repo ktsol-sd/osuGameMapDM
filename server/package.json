@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bancho.js": "^0.9.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "nodesu": "^0.7.3",
+    "readdir": "^1.0.2",
+    "uninstall": "^0.0.0"
+  }
+}

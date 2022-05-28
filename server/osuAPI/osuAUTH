@@ -1,0 +1,46 @@
+const bancho = require("bancho.js");
+const nodesu = require("nodesu");
+
+const getMapID = (mapLink) => {
+  const fullMapLink = mapLink;
+  const mapID = mapLink.split("/");
+  // const mapID = mapID_not[4].split('#');
+  return fullMapLink, mapID[4];
+};
+
+const sendMessage = (mapLink, mapID) => {
+  const client = new bancho.BanchoClient({
+    username: process.env.OSU_USERNAME,
+    password: process.env.OSU_PWD,
+  });
+  client.connect.then(async () => {
+    const userToDM = client.getUser("-Velfina");
+    const api = new nodesu.Client(process.env.API_KEY);
+    const mapInfo = await api.beatmaps.getByBeatmapId(mapID);
+    const songTitle = mapInfo[0]["title"];
+    const artistName = mapInfo[0]["artist"];
+    const diffName = mapInfo[0]["version"];
+    const finalMessage =
+      "[" +
+      mapLink +
+      " " +
+      artistName +
+      " " +
+      "-" +
+      " " +
+      songTitle +
+      " " +
+      "[" +
+      diffName +
+      "]" +
+      "]";
+    const requestMessage = new bancho.OutgoingBanchoMessage(
+      client,
+      userToDM,
+      finalMessage
+    );
+    requestMessage.send();
+  });
+};
+
+module.exports = { getMapID, sendMessage };
