@@ -13,10 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 mongoose
-  .connect(
-    process.env.DATABASE ||
-      "mongodb+srv://sadonemsi:uKzcczPlwpGgCiSP@osumaprequest.lthwm.mongodb.net/?retryWrites=true&w=majority"
-  )
+  .connect(process.env.DATABASE)
   .then(() => console.log("DB CONNECTED"))
   .catch((err) => console.log("DB Error -> ", err));
 
