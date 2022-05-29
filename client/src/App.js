@@ -6,6 +6,11 @@ import { toast } from "react-toastify";
 function App() {
   //axios.defaults.baseURL = process.env.PUBLIC_API;
   const [map, setMap] = useState("");
+  const [userToDM, setUserToDM] = useState("-Velfina-");
+
+  const handleUserToDM = (e) => {
+    setUserToDM(e.target.value);
+  };
   const handleMap = (e) => {
     setMap(e.target.value);
   };
@@ -16,28 +21,54 @@ function App() {
       let data = {
         map,
       };
-      const res = await axios.post(
-        `https://sadonosuproject.herokuapp.com/sendMap`,
-        data
-      );
+      const res = await axios.post(`http://localhost:3001/sendMap`, data);
       if (map.length === 0) {
-        toast.error(res.data.msg);
+        toast.error("Please fill in the field");
+      } else if (!map.includes("https://osu.ppy.sh/beatmapsets/")) {
+        toast.error("Please add a valid link");
+      } else if (
+        map.includes("#taiko") ||
+        map.includes("#fruits") ||
+        map.includes("#mania")
+      ) {
+        toast.error("Please add a valid link");
       } else if (res.status === 200) {
-        toast.success(res.data.msg);
+        toast.success("Map submitted!");
+        setMap("");
       }
     } catch (error) {
       console.log(error);
     }
   };
 
+  // const handleNameSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     let nameData = {
+  //       userToDM,
+  //     };
+  //     const res = await axios.post(`http://localhost:3001/sendName`, nameData);
+  //     if (userToDM.length === 0) {
+  //       toast.error("Please fill in the field");
+  //     } else if (res.status === 200) {
+  //       toast.success("Name swapped!");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
   return (
     <div className="App">
       <header className="App-header"></header>
 
-      <div className="container-fluid">
+      <div
+        className="container-fluid"
+        style={{ backgroundColor: "rgb(56,46,50)" }}
+      >
         <div className="row py-5">
           <div className="col text-center">
-            <h1 className="text-black">Map request</h1>
+            <h1 className="text-white">Map request</h1>
           </div>
         </div>
 
@@ -59,11 +90,36 @@ function App() {
               </div>
               <div className="form-group p-2">
                 <button
-                  className="btn btn-primary col-12"
+                  className="btn btn-primary col-6"
                   onClick={handleSubmit}
                 >
                   Submit
                 </button>
+                <p className="mt-2 text-muted">
+                  Example: https://osu.ppy.sh/beatmapsets/461744#osu/1031991
+                </p>
+                {/* <div className="form-group p-2">
+                  <small>
+                    <label className="text-muted">Your osu! IGN</label>
+                  </small>
+                  <input
+                    onChange={handleUserToDM}
+                    value={userToDM}
+                    id="osuUser"
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter your osu IGN"
+                  />
+                </div> */}
+                {/* <div className="form-group p-2">
+                  <button
+                    className="btn btn-primary col-3"
+                    onClick={handleNameSubmit}
+                  >
+                    Submit Name
+                  </button>
+                  <p className="mt-2 text-muted">Example -Velfina-</p>
+                </div> */}
               </div>
             </form>
           </div>
