@@ -7,7 +7,7 @@
     "mongoose": "^6.3.4",
     "nodesu": "^0.7.3",
     "passport": "^0.6.0",
-    "passport-twitch": "^1.0.3",
+    "passport-twitch-new": "^0.0.2",
     "readdir": "^1.0.2",
     "uninstall": "^0.0.0"
   }

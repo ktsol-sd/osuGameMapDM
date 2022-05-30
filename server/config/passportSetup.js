@@ -1,5 +1,6 @@
 const passport = require("passport");
-const TwitchStrategy = require("passport-twitch").Strategy;
+const TwitchStrategy = require("passport-twitch-new").Strategy;
+const GoogleStrategy = require("passport-google-oauth20");
 const User = require("../models/user");
 
 passport.serializeUser((user, cb) => {
