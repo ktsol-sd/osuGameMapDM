@@ -14,14 +14,17 @@ passport.deserializeUser((user, cb) => {
 passport.use(
   new TwitchStrategy(
     {
-      clientID: process.env.TWITCH_CLIENT,
-      clientSecret: process.env.TWITCH_SECRET,
+      clientID: process.env.TWITCH_CLIENT || "rix8psqzlafi98zp35jtzo3mnksagj",
+      clientSecret:
+        process.env.TWITCH_SECRET || "a5qf7yh1xeqgoey1id5vk4ybgtumtt",
       callbackURL: "/auth/twitch/redirect",
       scope: "user_read",
     },
 
-    () => {
+    function (accessToken, refreshToken, profile, done) {
       // passport callback function
+      console.log(profile);
+      console.log("passport callback function");
     }
   )
 );

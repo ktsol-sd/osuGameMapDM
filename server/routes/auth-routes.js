@@ -10,7 +10,7 @@ router.get("/logout", (req, res) => {
 router.get("/twitch", passport.authenticate("twitch"));
 
 //callback route for twitch
-router.get("/twitch/redirect", (req, res) => {
+router.get("/twitch/redirect", passport.authenticate("twitch"), (req, res) => {
   res.send("you reached twitch cb url");
 });
 

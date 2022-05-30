@@ -10,7 +10,10 @@ const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth-routes");
 
 mongoose
-  .connect(process.env.DATABASE)
+  .connect(
+    process.env.DATABASE ||
+      "mongodb+srv://sadonemsi:uKzcczPlwpGgCiSP@osumaprequest.lthwm.mongodb.net/?retryWrites=true&w=majority"
+  )
   .then(() => console.log("DB CONNECTED"))
   .catch((err) => console.log("DB Error -> ", err));
 

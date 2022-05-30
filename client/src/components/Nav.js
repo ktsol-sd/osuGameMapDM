@@ -11,12 +11,12 @@ const Nav = () => {
   return (
     <nav className="nav d-flex justify-content-end gradient">
       <div className="my-2 mx-2">
-        <a href="https://sadonosuproject.herokuapp.com/auth/twitch">
+        <a href="http://localhost:3001/auth/twitch">
           <button type="button" className="btn btnColor text-white">
             Login with Twitch
           </button>
         </a>
-        <a href="https://sadonosuproject.herokuapp.com/auth/logout">
+        <a href="http://localhost:3001/auth/logout">
           <button type="button" className="btn btnColor text-white">
             Logout
           </button>
