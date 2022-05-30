@@ -15,7 +15,7 @@ router.get(
   "/twitch/redirect",
   passport.authenticate("twitch", { failureRedirect: "/" }),
   function (req, res) {
-    res.redirect("/");
+    res.redirect("https://sadonosuproject.herokuapp.com");
   }
 );
 
