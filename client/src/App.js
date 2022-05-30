@@ -8,9 +8,9 @@ function App() {
   const [map, setMap] = useState("");
   const [userToDM, setUserToDM] = useState("-Velfina-");
 
-  const handleUserToDM = (e) => {
-    setUserToDM(e.target.value);
-  };
+  // const handleUserToDM = (e) => {
+  //   setUserToDM(e.target.value);
+  // };
   const handleMap = (e) => {
     setMap(e.target.value);
   };

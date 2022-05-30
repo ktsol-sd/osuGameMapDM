@@ -1,4 +1,3 @@
-const res = require("express/lib/response");
 const { sendMap, changeName } = require("../osuAPI/map");
 const router = require("express").Router();
 

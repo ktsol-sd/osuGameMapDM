@@ -6,6 +6,8 @@
     "dotenv": "^16.0.1",
     "mongoose": "^6.3.4",
     "nodesu": "^0.7.3",
+    "passport": "^0.6.0",
+    "passport-twitch": "^1.0.3",
     "readdir": "^1.0.2",
     "uninstall": "^0.0.0"
   }

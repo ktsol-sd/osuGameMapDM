@@ -3,13 +3,9 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema(
   {
-    username: {
+    twitchID: {
       type: String,
       trim: true,
-      required: true,
-    },
-    osuIGN: {
-      type: String,
       required: true,
     },
     image: {
@@ -19,4 +15,4 @@ const userSchema = new Schema(
   },
   { timestamps: true }
 );
-export default mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", userSchema);
