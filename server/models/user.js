@@ -1,18 +1,26 @@
 const mongoose = require("mongoose");
-const { Schema } = mongoose;
+const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    twitchID: {
+    twitchUsername: {
       type: String,
       trim: true,
       required: true,
     },
+    twitchID: {
+      type: String,
+    },
     image: {
-      url: String,
+      type: String,
       public_id: String,
+    },
+    mapRequested: {
+      type: String,
     },
   },
   { timestamps: true }
 );
-module.exports = mongoose.model("User", userSchema);
+
+const User = mongoose.model("user", userSchema);
+module.exports = User;

@@ -1,5 +1,6 @@
 const bancho = require("bancho.js");
 const nodesu = require("nodesu");
+const Map = require("../models/maps");
 
 // const changeName = (inputName) => {
 //   try {
@@ -49,6 +50,13 @@ const sendMap = (inputMap) => {
         diffName +
         "]" +
         "]";
+      new Map({
+        mapRequested: finalMessage,
+      })
+        .save()
+        .then((newMap) => {
+          console.log("new map registered " + newMap);
+        });
       console.log(finalMessage);
       userToDM.sendMessage(finalMessage).catch(console.error);
     });

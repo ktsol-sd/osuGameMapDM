@@ -11,7 +11,8 @@ router.get("/twitch", passport.authenticate("twitch"));
 
 //callback route for twitch
 router.get("/twitch/redirect", passport.authenticate("twitch"), (req, res) => {
-  res.send("you reached twitch cb url");
+  //res.send(req.user);
+  res.redirect("/profile/");
 });
 
 module.exports = router;
