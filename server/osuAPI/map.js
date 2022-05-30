@@ -2,23 +2,6 @@ const bancho = require("bancho.js");
 const nodesu = require("nodesu");
 const Map = require("../models/maps");
 
-// const changeName = (inputName) => {
-//   try {
-//     const client = new bancho.BanchoClient({
-//       username: process.env.OSU_USERNAME || "-Velfina-",
-//       password: process.env.OSU_PWD || "710a2a93",
-//     });
-//     client.connect().then(() => {
-//       const nameChanged = client.getUser(inputName).ircUsername;
-//       setOsuIGN(nameChanged);
-//       console.log(nameChanged, " in map.js");
-//       return nameChanged;
-//     });
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
-
 const sendMap = (inputMap) => {
   try {
     const fullMapLink = inputMap;

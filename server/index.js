@@ -25,8 +25,12 @@ app.use(
     secret: process.env.COOKIE_KEY,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true },
-    maxAge: 24 * 60 * 60 * 1000,
+    cookie: {
+      secure: false, // if true: only transmit cookie over https
+      httpOnly: true, // if true: prevents client side JS from reading the cookie
+      maxAge: 1000 * 60 * 60 * 60, // session max age in milliseconds
+      sameSite: "lax", // make sure sameSite is not none
+    },
   })
 );
 
@@ -41,7 +45,7 @@ app.use(cors());
 //set up routes
 app.use("/", routes);
 app.use("/auth", authRoutes);
-app.use("/profile", profileRoutes);
+app.use("/authorized", profileRoutes);
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));

@@ -11,7 +11,7 @@ const Nav = () => {
   return (
     <nav className="nav d-flex justify-content-end gradient">
       <div className="my-2 mx-2">
-        <a href="http://localhost:3001/auth/twitch">
+        {/* <a href="http://localhost:3001/auth/twitch">
           <button type="button" className="btn btnColor text-white">
             Login with Twitch
           </button>
@@ -20,7 +20,7 @@ const Nav = () => {
           <button type="button" className="btn btnColor text-white">
             Logout
           </button>
-        </a>
+        </a> */}
       </div>
     </nav>
   );
