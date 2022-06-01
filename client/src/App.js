@@ -11,7 +11,7 @@ export default function App() {
 
   useEffect(() => {
     const getUser = async () => {
-      fetch("https://sadonosuproject.herokuapp.com/auth/login/success", {
+      fetch("http://localhost:3001/auth/login/success", {
         method: "GET",
         credentials: "include",
         headers: {
@@ -40,12 +40,9 @@ export default function App() {
       <div>
         <Nav user={user} />
         <Routes>
+          <Route path="/" element={<Authorized />} />
           <Route
-            path="https://sadonosuproject.herokuapp.com/"
-            element={<Authorized />}
-          />
-          <Route
-            path="https://sadonosuproject.herokuapp.com/login"
+            path="/login"
             element={user ? <Navigate to="/" /> : <Login />}
           />
         </Routes>

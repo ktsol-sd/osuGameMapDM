@@ -17,10 +17,7 @@ const Authorized = () => {
       let data = {
         map,
       };
-      const res = await axios.post(
-        `https://sadonosuproject.herokuapp.com/sendMap`,
-        data
-      );
+      const res = await axios.post(`http://localhost:3001/sendMap`, data);
       if (map.length === 0) {
         toast.error("Please fill in the field");
       } else if (!map.includes("https://osu.ppy.sh/beatmapsets/")) {

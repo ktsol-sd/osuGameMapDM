@@ -5,7 +5,7 @@ router.get("/logout", (req, res) => {
   //handle with passport
   req.logout(req.user, (err) => {
     if (err) return next(err);
-    res.redirect("https://sadonosuproject.herokuapp.com");
+    res.redirect("http://localhost:3000/");
   });
 });
 
@@ -35,7 +35,7 @@ router.get("/twitch", passport.authenticate("twitch"));
 router.get(
   "/twitch/redirect",
   passport.authenticate("twitch", {
-    successRedirect: "https://sadonosuproject.herokuapp.com",
+    successRedirect: "http://localhost:3000/",
     failureRedirect: "/login/failed",
   })
 );

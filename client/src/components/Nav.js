@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const Nav = ({ user }) => {
   const logout = () => {
-    window.open("https://sadonosuproject.herokuapp.com/auth/logout", "_self");
+    window.open("http://localhost:3001/auth/logout", "_self");
   };
 
   return (

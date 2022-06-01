@@ -39,7 +39,7 @@ app.use(express.static(path.resolve(__dirname, "../client/build")));
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://sadonosuproject.herokuapp.com",
+    origin: "http://localhost:3000",
     methods: "GET, POST, PUT,DELETE",
     credentials: true,
   })

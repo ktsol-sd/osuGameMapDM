@@ -4,7 +4,7 @@ import twitch from "../icons/twitch.svg";
 
 function Login() {
   const twitchLogin = () => {
-    window.open("https://sadonosuproject.herokuapp.com/auth/twitch", "_self");
+    window.open("http://localhost:3001/auth/twitch", "_self");
   };
   return (
     <div className="Login">
