@@ -8,7 +8,6 @@ const passportSetup = require("./config/passportSetup");
 const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
-const profileRoutes = require("./routes/profile-routes");
 const authRoutes = require("./routes/auth-routes");
 
 mongoose
@@ -17,8 +16,6 @@ mongoose
   .catch((err) => console.log("DB Error -> ", err));
 
 const app = express();
-
-app.set("view engine", "ejs");
 
 app.use(
   session({
@@ -40,12 +37,17 @@ app.use(passport.session());
 
 app.use(express.static(path.resolve(__dirname, "../client/build")));
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://sadonosuproject.herokuapp.com",
+    methods: "GET, POST, PUT,DELETE",
+    credentials: true,
+  })
+);
 
 //set up routes
 app.use("/", routes);
 app.use("/auth", authRoutes);
-app.use("/authorized", profileRoutes);
 
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));

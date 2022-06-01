@@ -40,7 +40,7 @@ const sendMap = (inputMap) => {
         .then((newMap) => {
           console.log("new map registered " + newMap);
         });
-      console.log(finalMessage);
+      //console.log(finalMessage);
       userToDM.sendMessage(finalMessage).catch(console.error);
     });
   } catch (err) {

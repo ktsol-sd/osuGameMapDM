@@ -4,7 +4,6 @@
     "bancho.js": "^0.9.7",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
-    "ejs": "^3.1.8",
     "express-session": "^1.17.3",
     "mongoose": "^6.3.4",
     "nodesu": "^0.7.3",
@@ -13,5 +12,4 @@
     "readdir": "^1.0.2",
     "uninstall": "^0.0.0"
   }
-  
 }

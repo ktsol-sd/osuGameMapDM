@@ -1,29 +1,44 @@
-import { useEffect, useState } from "react";
 import "./Nav.css";
-//style={{ backgroundColor: "rgb(105,32,61)" }}
-const Nav = () => {
-  // const [current, setCurrent] = useState("");
+import { Link, useLocation } from "react-router-dom";
 
-  // useEffect(() => {
-  //   process.browser && setCurrent(window.location.pathname);
-  // }, [process.browser && window.location.pathname]);
+const Nav = ({ user }) => {
+  const logout = () => {
+    window.open("https://sadonosuproject.herokuapp.com/auth/logout", "_self");
+  };
 
   return (
     <nav className="nav d-flex justify-content-end gradient">
-      <div className="my-2 mx-2">
-        {/* <a href="http://localhost:3001/auth/twitch">
-          <button type="button" className="btn btnColor text-white">
-            Login with Twitch
+      <span className="logo text-white">
+        <Link className="link" to="/">
+          Osu! App
+        </Link>
+      </span>
+      {user ? (
+        <div className="my-2 mx-2">
+          <ul className="list text-white">
+            <li className="listItem">
+              <img src={user.image} alt="" className="avatar" />
+            </li>
+            <li className="listItem">{user.twitchUsername}</li>
+            <li className="listItem">
+              <button
+                type="button"
+                className="btn secondBtnColor text-white"
+                onClick={logout}
+              >
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+      ) : (
+        <Link className="link" to="login">
+          <button type="button" className="btn loginButton text-white">
+            Login
           </button>
-        </a>
-        <a href="http://localhost:3001/auth/logout">
-          <button type="button" className="btn btnColor text-white">
-            Logout
-          </button>
-        </a> */}
-      </div>
+        </Link>
+      )}
     </nav>
   );
 };
-
 export default Nav;

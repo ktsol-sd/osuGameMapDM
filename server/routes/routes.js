@@ -19,15 +19,4 @@ router.post("/sendMap", (req, res) => {
   }
 });
 
-// router.post("/sendName", (req, res) => {
-//   let data = req.body;
-//   if (data.userToDM.length === 0) {
-//     return res.json({ msg: "Please fill in the field!" });
-//   } else {
-//     changeName(data.userToDM);
-//     // console.log(data.userToDM);
-//     return res.json({ msg: "Name changed!" });
-//   }
-// });
-
 module.exports = router;

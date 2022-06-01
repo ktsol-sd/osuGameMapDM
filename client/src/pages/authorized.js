@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 const Authorized = () => {
   const [map, setMap] = useState("");
-  const [userToDM, setUserToDM] = useState("-Velfina-");
+  //const [userToDM, setUserToDM] = useState("-Velfina-");
 
   const handleMap = (e) => {
     setMap(e.target.value);
@@ -17,7 +17,10 @@ const Authorized = () => {
       let data = {
         map,
       };
-      const res = await axios.post(`http://localhost:3001/sendMap`, data);
+      const res = await axios.post(
+        `https://sadonosuproject.herokuapp.com/sendMap`,
+        data
+      );
       if (map.length === 0) {
         toast.error("Please fill in the field");
       } else if (!map.includes("https://osu.ppy.sh/beatmapsets/")) {
