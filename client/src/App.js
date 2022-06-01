@@ -40,9 +40,12 @@ export default function App() {
       <div>
         <Nav user={user} />
         <Routes>
-          <Route path="/" element={<Authorized />} />
           <Route
-            path="/login"
+            path="https://sadonosuproject.herokuapp.com/"
+            element={<Authorized />}
+          />
+          <Route
+            path="https://sadonosuproject.herokuapp.com/login"
             element={user ? <Navigate to="/" /> : <Login />}
           />
         </Routes>
